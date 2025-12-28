@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Learning Path Generator</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 8px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        pre {
+            white-space: pre-wrap;
+            background: #eee;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>AI Learning Path Generator</h2>
+
+    <input id="role" placeholder="Target Role (e.g. Data Analyst)" />
+    <input id="time" placeholder="Study hours per day" />
+    <input id="duration" placeholder="Duration (days)" />
+
+    <button onclick="generate()">Generate Roadmap</button>
+
+    <pre id="output"></pre>
+</div>
+
+<script>
+function generate() {
+    const role = document.getElementById("role").value;
+    const time = document.getElementById("time").value;
+    const duration = document.getElementById("duration").value;
+
+    fetch("http://127.0.0.1:5000/generate", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            role: role,
+            time: time,
+            duration: duration
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("output").innerText = data.roadmap;
+    })
+    .catch(err => {
+        document.getElementById("output").innerText = "Error: " + err;
+    });
+}
+</script>
+
+</body>
+</html>
