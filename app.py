@@ -1,9 +1,17 @@
+@app.route("/")
+def home():
+    return "App is running"
+
 from flask import Flask, render_template_string, request, jsonify
 from google import genai
 
 client = genai.Client(api_key="AIzaSyBjlVYQ4PJ2boRf_8Y_9eG1z82pQJ5j4rE")
 
 app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Backend is live"
 
 HTML = """
 <!DOCTYPE html>
@@ -60,3 +68,6 @@ def generate():
     return jsonify({
         "roadmap": response.text
     })
+if __name__ == "__main__":
+    app.run()
+ 
