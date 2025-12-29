@@ -1,3 +1,6 @@
+@app.route("/")
+def home():
+    return "App is running"
 from flask import Flask, render_template_string, request, jsonify
 from google import genai
 
