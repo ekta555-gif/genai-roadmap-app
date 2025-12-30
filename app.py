@@ -63,3 +63,6 @@ def generate():
     return jsonify({
         "roadmap": response.text
     })
+    if __name__ == "__main__":
+    app.run()
+ 
