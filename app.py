@@ -1,5 +1,8 @@
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> faa8b13e4aa1a086d7d596cd9d66964a285bcbce
 from flask import Flask, render_template_string, request, jsonify
 from google import genai
 
@@ -9,8 +12,11 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return "App is running"
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> faa8b13e4aa1a086d7d596cd9d66964a285bcbce
 HTML = """
 <!DOCTYPE html>
 <html>
