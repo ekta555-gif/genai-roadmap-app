@@ -59,7 +59,7 @@ def generate():
     """
 
     response = client.models.generate_content(
-        model="gemini-1.0-pro",
+        model="models/gemini-pro",
         contents=prompt
     )
 
